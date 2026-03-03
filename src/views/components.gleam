@@ -1,6 +1,6 @@
-import lustre/attribute
 import gleam/int
 import gleam/list
+import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
 
@@ -148,8 +148,8 @@ pub fn org_card(
         html.div([attribute.class("project-footer")], [
           html.div(
             [attribute.class("project-language")],
-            list.map(languages, fn(lang) {
-              html.span([], [
+            list.flat_map(languages, fn(lang) {
+              [
                 html.span(
                   [
                     attribute.class("language-dot"),
@@ -158,7 +158,7 @@ pub fn org_card(
                   [],
                 ),
                 html.text(lang.0),
-              ])
+              ]
             }),
           ),
         ]),

@@ -61,7 +61,7 @@ fn hero_section(stats: GitHubStats) -> Element(a) {
       html.img([
         attribute.class("hero-image"),
         attribute.src("/goshawk_nobg.png"),
-        attribute.alt("Goshawk"),
+        attribute.alt("Eurasian Goshawk in flight."),
       ]),
       html.div([attribute.class("hero-content")], [
         html.p([attribute.class("hero-label")], [html.text("┌─ developer ─┐")]),
@@ -231,7 +231,7 @@ fn projects_section(repos: List(GitHubRepo)) -> Element(a) {
         html.h2([attribute.class("section-title")], [html.text("Projects")]),
         html.p([attribute.class("section-description")], [
           html.text(
-            "A selection of my open-source projects. I build tools that solve problems I encounter, mostly in functional programming languages.",
+            "A selection of my open-source projects. I build tools that solve problems I encounter, from large to small, in my day-to-day life.",
           ),
         ]),
         html.div(
@@ -415,7 +415,6 @@ fn contact_section() -> Element(a) {
             html.ul([attribute.class("terminal-list")], [
               html.li([], [html.text("Freelance projects")]),
               html.li([], [html.text("Open source collaborations")]),
-              html.li([], [html.text("Consulting on FP/Type systems")]),
               html.li([], [html.text("Interesting conversations")]),
             ]),
             html.div([], [
