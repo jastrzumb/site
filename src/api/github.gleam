@@ -51,7 +51,7 @@ fn make_github_request(url: String) -> Result(String, ApiError) {
       let req_with_headers =
         req
         |> request.set_header("Accept", "application/vnd.github.v3+json")
-        |> request.set_header("User-Agent", "jastrzymb-site-gleam")
+        |> request.set_header("User-Agent", "jastrzumb-site-gleam")
 
       case httpc.send(req_with_headers) {
         Ok(resp) -> {
@@ -69,7 +69,7 @@ fn make_github_request(url: String) -> Result(String, ApiError) {
   }
 }
 
-fn parse_user_json(json_str: String) -> Result(GitHubStats, String) {
+pub fn parse_user_json(json_str: String) -> Result(GitHubStats, String) {
   let decoder =
     dynamic.decode3(
       fn(public_repos, followers, following) {
@@ -92,7 +92,7 @@ fn parse_user_json(json_str: String) -> Result(GitHubStats, String) {
   }
 }
 
-fn parse_repos_json(json_str: String) -> Result(List(GitHubRepo), String) {
+pub fn parse_repos_json(json_str: String) -> Result(List(GitHubRepo), String) {
   let repo_decoder =
     dynamic.decode6(
       fn(name, description, language, stars, forks, url) {

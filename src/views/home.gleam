@@ -65,11 +65,11 @@ fn hero_section(stats: GitHubStats) -> Element(a) {
       ]),
       html.div([attribute.class("hero-content")], [
         html.p([attribute.class("hero-label")], [html.text("┌─ developer ─┐")]),
-        html.h1([attribute.class("hero-title"), attribute.id("typewriter")], [
-          html.text("Jastrzymb"),
+        html.h1([attribute.class("hero-title")], [
+          html.text("Jastrzůmb"),
         ]),
         html.p([attribute.class("hero-pronunciation")], [
-          html.text("/ˈjas.tʂɘmp/ ─ Eurasian Goshawk"),
+          html.text("/ˈjas.tʂomp/ ─ Eurasian Goshawk"),
         ]),
         html.div([attribute.class("hero-tagline")], [
           html.p([], [html.text("Functional programming enthusiast.")]),
@@ -83,40 +83,25 @@ fn hero_section(stats: GitHubStats) -> Element(a) {
         ]),
         html.div([attribute.class("hero-stats")], [
           html.div([attribute.class("hero-stat")], [
-            html.div(
-              [attribute.class("hero-stat-value"), attribute.id("hero-repos")],
-              [
-                html.text(int.to_string(stats.repos)),
-              ],
-            ),
+            html.div([attribute.class("hero-stat-value")], [
+              html.text(int.to_string(stats.repos)),
+            ]),
             html.div([attribute.class("hero-stat-label")], [
               html.text("repositories"),
             ]),
           ]),
           html.div([attribute.class("hero-stat")], [
-            html.div(
-              [
-                attribute.class("hero-stat-value"),
-                attribute.id("hero-followers"),
-              ],
-              [
-                html.text(int.to_string(stats.followers)),
-              ],
-            ),
+            html.div([attribute.class("hero-stat-value")], [
+              html.text(int.to_string(stats.followers)),
+            ]),
             html.div([attribute.class("hero-stat-label")], [
               html.text("followers"),
             ]),
           ]),
           html.div([attribute.class("hero-stat")], [
-            html.div(
-              [
-                attribute.class("hero-stat-value"),
-                attribute.id("hero-languages"),
-              ],
-              [
-                html.text(int.to_string(stats.languages)),
-              ],
-            ),
+            html.div([attribute.class("hero-stat-value")], [
+              html.text(int.to_string(stats.languages)),
+            ]),
             html.div([attribute.class("hero-stat-label")], [
               html.text("languages"),
             ]),
@@ -139,7 +124,7 @@ fn about_section() -> Element(a) {
             html.text("Hi, I'm "),
             html.strong([], [html.text("Michal S.")]),
             html.text(" (also known as "),
-            html.span([attribute.class("highlight")], [html.text("Jastrzymb")]),
+            html.span([attribute.class("highlight")], [html.text("Jastrzůmb")]),
             html.text(
               "), a Rust/Python/Gleam developer & Project Lead with almost a decade of experience.",
             ),
@@ -234,17 +219,14 @@ fn projects_section(repos: List(GitHubRepo)) -> Element(a) {
             "A selection of my open-source projects. I build tools that solve problems I encounter, from large to small, in my day-to-day life.",
           ),
         ]),
-        html.div(
-          [attribute.class("projects-grid"), attribute.id("projects-grid")],
-          project_cards,
-        ),
+        html.div([attribute.class("projects-grid")], project_cards),
         html.div(
           [
             attribute.style([#("text-align", "center"), #("margin-top", "3rem")]),
           ],
           [
             components.btn_secondary(
-              "https://github.com/jastrzymb?tab=repositories",
+              "https://github.com/jastrzumb?tab=repositories",
               "View All Repositories →",
             ),
           ],
@@ -270,7 +252,7 @@ fn orgs_section() -> Element(a) {
         html.p([attribute.class("section-description")], [
           html.text("Major projects I'm currently working on."),
         ]),
-        html.div([attribute.class("projects-grid"), attribute.id("orgs-grid")], [
+        html.div([attribute.class("projects-grid")], [
           components.org_card(
             "Ad Astra",
             "A multimedia adventure based on Homestuck, spanning both a webcomic and visual novel game.",
@@ -289,7 +271,7 @@ fn orgs_section() -> Element(a) {
             "🔒",
             "active",
             [#("Nix", "#7e7eff")],
-            "https://github.com/jastrzymb/distrust",
+            "https://github.com/jastrzumb/distrust",
           ),
           components.org_card(
             "u64.co.uk",
@@ -362,8 +344,8 @@ fn contact_section() -> Element(a) {
           components.contact_link(
             "⚡",
             "GitHub",
-            "@jastrzymb",
-            "https://github.com/jastrzymb",
+            "@jastrzumb",
+            "https://github.com/jastrzumb",
           ),
           html.div(
             [
@@ -452,7 +434,7 @@ fn footer() -> Element(a) {
         html.div([attribute.class("footer-links")], [
           html.a(
             [
-              attribute.href("https://github.com/jastrzymb"),
+              attribute.href("https://github.com/jastrzumb"),
               attribute.attribute("target", "_blank"),
               attribute.attribute("rel", "noopener noreferrer"),
             ],
@@ -471,37 +453,7 @@ fn footer() -> Element(a) {
 }
 
 fn inline_scripts() -> Element(a) {
-  html.script(
-    [],
-    "
-    // Navigation scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Scroll reveal animation
-    const reveals = document.querySelectorAll('.reveal');
-    
-    const revealOnScroll = () => {
-      reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-          element.classList.add('visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
-  ",
-  )
+  html.script([attribute.src("/script.js")], "")
 }
 
 fn language_color(language: String) -> String {
@@ -533,7 +485,7 @@ fn default_projects() -> List(Element(a)) {
       "#ef7a08",
       0,
       0,
-      "https://github.com/jastrzymb/clip",
+      "https://github.com/jastrzumb/clip",
     ),
     components.project_card(
       "the-haiku-license",
@@ -542,7 +494,7 @@ fn default_projects() -> List(Element(a)) {
       "#7e7eff",
       0,
       0,
-      "https://github.com/jastrzymb/the-haiku-license",
+      "https://github.com/jastrzumb/the-haiku-license",
     ),
     components.project_card(
       "pronounce",
@@ -551,7 +503,7 @@ fn default_projects() -> List(Element(a)) {
       "#3572A5",
       4,
       0,
-      "https://github.com/jastrzymb/pronounce",
+      "https://github.com/jastrzumb/pronounce",
     ),
     components.project_card(
       "rpass",
@@ -560,7 +512,7 @@ fn default_projects() -> List(Element(a)) {
       "#dea584",
       0,
       0,
-      "https://github.com/jastrzymb/rpass",
+      "https://github.com/jastrzumb/rpass",
     ),
     components.project_card(
       "nofetch",
@@ -569,7 +521,7 @@ fn default_projects() -> List(Element(a)) {
       "#89e051",
       8,
       4,
-      "https://github.com/jastrzymb/nofetch",
+      "https://github.com/jastrzumb/nofetch",
     ),
     components.project_card(
       "nolicense",
@@ -578,7 +530,7 @@ fn default_projects() -> List(Element(a)) {
       "#8d6e63",
       3,
       0,
-      "https://github.com/jastrzymb/nolicense",
+      "https://github.com/jastrzumb/nolicense",
     ),
   ]
 }
